@@ -1,3 +1,4 @@
+
 import "./CommunityHighlight.css";
 
 export default function CommunityHighlight() {

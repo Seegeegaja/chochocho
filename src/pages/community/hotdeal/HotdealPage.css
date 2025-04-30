@@ -172,4 +172,12 @@
     font-size: 14px;
     cursor: pointer;
   }
+  /* 추가: 클릭 가능 표시 */
+.title.clickable {
+  cursor: pointer;
+  color: #0070c0;
+  text-decoration: underline;
+}
+
+
   

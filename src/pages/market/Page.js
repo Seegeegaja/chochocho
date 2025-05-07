@@ -39,20 +39,6 @@ export default function MarketPage() {
     return (
         <section className="market-page">
             <MarketBanner />
-
-            {/* 상단 카테고리 탭 */}
-            <div className="category-tabs">
-                {["전체", "다크 초콜릿", "밀크 초콜릿", "화이트 초콜릿", "트러플", "프랄린", "선물세트"].map((tab) => (
-                    <button
-                        key={tab}
-                        className={selectedTab === tab ? "tab active" : "tab"}
-                        onClick={() => setSelectedTab(tab)}
-                    >
-                        {tab}
-                    </button>
-                ))}
-            </div>
-
             <div className="market-content">
                 {/* 왼쪽 필터 */}
                 <aside className="filter-sidebar">

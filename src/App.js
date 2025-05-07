@@ -17,6 +17,7 @@ import BrandDetailPage from "./pages/brand/detail/Page";
 import CartPage from "./pages/cart/Page";
 import SignUpPage from "./pages/signup/Page";
 import LoginPage from "./pages/login/Page";
+import MyPage from "./pages/mypage/Page";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
         <Route path="cart" element={<CartPage/>}/>
         <Route path="login" element={<LoginPage/>}/>
         <Route path="signup" element={<SignUpPage/>}/>
-
+        {/* 마이 페이지 */}
+        <Route path="/mypage" element={<MyPage/>}/>
       </Routes>
       <Footer />
     </div>

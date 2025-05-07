@@ -27,12 +27,11 @@ export default function Header() {
                     <div className="logo">
                         <Link to="/">
                             <img src="/image/decadent-chocolate-swirl.png" alt="초콜릿 월드 로고" />
-                        <div className="logo-text">
-                            <h1>초콜릿 월드</h1>
-                            <p>The World of Chocolates</p>
-                        </div>
+                            <div className="logo-text">
+                                <h1>초콜릿 월드</h1>
+                                <p>The World of Chocolates</p>
+                            </div>
                         </Link>
-
                     </div>
 
                     {/* 네비게이션 (PC용) */}
@@ -43,23 +42,27 @@ export default function Header() {
                         <Link to="/brand">브랜드</Link>
                     </nav>
 
-                    {/* 로그인/회원가입/장바구니/검색 */}
+                    {/* 검색 / 마이페이지 / 로그인-회원가입 / 장바구니 */}
                     <div className="action-buttons">
+                        {/* 검색 버튼 */}
                         <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
                             <Search size={20} />
                         </button>
 
-                        {isLoggedIn ? (
-                            <Link to="/mypage">
-                                <User size={20} />
-                            </Link>
-                        ) : (
+                        {/* 마이페이지 버튼 - 항상 보이게 */}
+                        <Link to={isLoggedIn ? "/mypage" : "/login"} className="mypage-button">
+                            <User size={20} />
+                        </Link>
+
+                        {/* 로그인/회원가입 (로그인 안 되어 있을 때만 표시) */}
+                        {!isLoggedIn && (
                             <div className="auth-buttons">
                                 <Link to="/login" className="login-btn">로그인</Link>
                                 <Link to="/signup" className="signup-btn">회원가입</Link>
                             </div>
                         )}
 
+                        {/* 장바구니 */}
                         <Link to="/cart" className="cart-button">
                             <ShoppingCart size={20} />
                             <span className="cart-count"></span>
@@ -67,22 +70,24 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* 모바일 메뉴
-        {isMenuOpen && (
-          <div className="nav-mobile">
-            <Link to="/" onClick={() => setIsMenuOpen(false)}>홈</Link>
-            <Link to="/market" onClick={() => setIsMenuOpen(false)}>마켓</Link>
-            <Link to="/community" onClick={() => setIsMenuOpen(false)}>커뮤니티</Link>
-            <Link to="/brand" onClick={() => setIsMenuOpen(false)}>브랜드</Link>
-            {!isLoggedIn && (
-              <>
-                <hr />
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>로그인</Link>
-                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>회원가입</Link>
-              </>
-            )}
-          </div>
-        )} */}
+                {/* 모바일 메뉴 (필요 시 열기) */}
+                {/* 
+                {isMenuOpen && (
+                    <div className="nav-mobile">
+                        <Link to="/" onClick={() => setIsMenuOpen(false)}>홈</Link>
+                        <Link to="/market" onClick={() => setIsMenuOpen(false)}>마켓</Link>
+                        <Link to="/community" onClick={() => setIsMenuOpen(false)}>커뮤니티</Link>
+                        <Link to="/brand" onClick={() => setIsMenuOpen(false)}>브랜드</Link>
+                        {!isLoggedIn && (
+                            <>
+                                <hr />
+                                <Link to="/login" onClick={() => setIsMenuOpen(false)}>로그인</Link>
+                                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>회원가입</Link>
+                            </>
+                        )}
+                    </div>
+                )} 
+                */}
 
                 {/* 검색창 */}
                 {isSearchOpen && (

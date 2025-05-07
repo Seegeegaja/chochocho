@@ -195,4 +195,8 @@
     transform: translateY(-50%);
     color: #777;
   }
+  .mypage-button {
+    margin: 0 10px;
+}
+
   
